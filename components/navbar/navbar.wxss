@@ -1,0 +1,9 @@
+.navbar {
+  position: fixed; top: 0; left: 0; right: 0;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 20rpx; box-sizing: border-box; z-index: 999;
+}
+.navbar-left { display: flex; align-items: center; gap: 20rpx; }
+.nav-btn { font-size: 32rpx; color: #333; }
+.navbar-title { font-size: 36rpx; font-weight: 500; }
+.navbar-right { flex-shrink: 0; }

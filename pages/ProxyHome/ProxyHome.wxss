@@ -1,0 +1,100 @@
+/* pages/ProxyHome/ProxyHome.wxss */
+page {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  background-color: #F3F3F3;
+}
+
+.page {
+  padding: 30rpx;
+  height: 80vh;
+  box-sizing: border-box;
+}
+
+.content {
+  margin-top: 200rpx;
+  text-align: center;
+  font-size: 32rpx;
+}
+
+.page-content {
+  background-color: #F3F3F3;
+  height: 100vh;
+ 
+  padding-bottom: 40rpx;
+}
+.page-wrap {
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+}
+.top-header {
+  height: 100rpx;
+  flex-shrink: 0;
+}
+.scroll-content {
+  flex: 1;
+  height: 0;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+/* 设备卡片 真机稳定立体 */
+.card-list {
+   margin: 20rpx;
+  border-radius: 16rpx;
+  height: auto;
+  padding: 20rpx;
+  overflow: hidden;
+  box-shadow: 0 8rpx 24rpx rgba(0, 0, 0, 0.08);
+  background: linear-gradient(180deg, #ffffff 0%, #ffffff 100%);
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+}
+
+/* 点击按压立体效果 */
+.card-list.active {
+  border: 2px solid rgb(202, 206, 193) ;
+  background: rgb(242, 243, 239);
+  transform: translateY(4rpx);
+  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.06);
+}
+
+.card-title {
+  font-size: 32rpx;
+  font-weight: 800;
+  color: #030303;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.card-subtitle {
+  margin-top: 8rpx;
+  font-size: 26rpx;
+  color: #0e0d0d;
+}
+
+/* 横向分割线 */
+.line {
+  width: 100%;
+  height: 2rpx;
+  background: hsl(66, 51%, 39%);
+  margin: 20rpx 0;
+}
+/* 图标 + 文字 横向布局（真机永远居中） */
+.icon-text-row {
+  display: flex;
+  align-items: center;
+  gap: 8rpx;
+  margin-top: 0rpx;
+}
+
+.icon-text-row .text {
+  font-size: 24rpx;
+  color: #666;
+}
+.active-type{
+background-color: rgb(214, 225, 228);
+}
+ 

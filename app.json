@@ -1,0 +1,72 @@
+{
+  "pages": [
+    "pages/login/login",
+    "pages/logs/logs",
+    "pages/home/home",
+    "pages/user/user",
+    "custom-tab-bar/index",
+    "components/navbar/navbar",
+    "pages/InsertDevice/InsertDevice",
+    "components/power-switch/power-switch",
+    "pages/EquipmentDetails_switch/EquipmentDetails_switch",
+    "pages/DeviceSetting/DeviceSetting",
+    "pages/ProxyHome/ProxyHome",
+    "pages/Recharge/Recharge",
+    "pages/PaymentImage/PaymentImage",
+    "pages/withdrawalTip/withdrawalTip",
+    "pages/RechargeTip/RechargeTip"
+  ],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationStyle": "custom"
+  },
+  "tabBar": {
+    "custom": true,
+    "color": "#666",
+    "selectedColor": "#1677FF",
+    "borderStyle": "white",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/home/home",
+        "text": "首页1"
+      },
+      {
+        "pagePath": "pages/ProxyHome/ProxyHome",
+        "text": "代理2"
+      },
+      {
+        "pagePath": "pages/user/user",
+        "text": "我的3"
+      }
+    ]
+  },
+  "style": "v2",
+  "renderer": "skyline",
+  "rendererOptions": {
+    "skyline": {
+      "defaultDisplayBlock": true,
+      "defaultContentBox": true,
+      "tagNameStyleIsolation": "legacy",
+      "disableABTest": true,
+      "sdkVersionBegin": "3.0.0",
+      "sdkVersionEnd": "15.255.255"
+    }
+  },
+  "componentFramework": "glass-easel",
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents",
+  "usingComponents": {
+    "t-icon": "tdesign-miniprogram/icon/icon",
+    "t-toast": "tdesign-miniprogram/toast/toast",
+    "t-button": "tdesign-miniprogram/button/button"
+  },
+  "permission": {
+    "scope.camera": {
+      "desc": "用于扫一扫识别二维码/条形码"
+    }
+  },
+  "requiredBackgroundModes": [
+    "audio"
+  ]
+}

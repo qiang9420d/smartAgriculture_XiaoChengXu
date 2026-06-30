@@ -1,0 +1,95 @@
+<navbar title="设备详细" bgColor="#1677ff" titleColor="#fff" showBack="{{true}}" showHome="{{false}}"></navbar>
+<view class="page-content" style="padding-top:{{navBarHeight}}px">
+<!-- pages/chart/chart.wxml -->
+
+<view class="chart-box">
+ <!-- 切换按钮 -->
+ <view style="padding:10rpx;" >
+  <!-- <button   bindtap="toggleTimeScreen">{{isLandscape ? '切换竖屏' : '切换横屏查看图表'}}</button> -->
+<!-- 外层flex容器包裹所有按钮 -->
+<!-- 按钮外层flex容器，自动横向均分 -->
+<view class="time-btn-wrap">
+  <button 
+    bindtap="toggleTimeScreen" 
+    data-type="today"
+    class="time-btn {{ selectType === 'today' ? 'time-btn-active' : '' }}"
+  >今天</button>
+
+  <button 
+    bindtap="toggleTimeScreen" 
+    data-type="yesterday"
+    class="time-btn {{ selectType === 'yesterday' ? 'time-btn-active' : '' }}"
+  >昨天</button>
+
+  <button 
+    bindtap="toggleTimeScreen" 
+    data-type="beforeYesterday"
+    class="time-btn {{ selectType === 'beforeYesterday' ? 'time-btn-active' : '' }}"
+  >前天</button>
+
+  <button 
+    bindtap="toggleTimeScreen" 
+    data-type="custom"
+    class="time-btn {{ selectType === 'custom' ? 'time-btn-active' : '' }}"
+  >自定义</button>
+</view>
+<view hidden="{{ selectType !== 'custom' }}">
+ <!-- 点击单元格打开选择器 -->
+ <t-cell
+  title="开始时间"
+  hover
+  note="{{datetimeStartText}}"
+  arrow
+  data-mode="datetimeStart"
+  bindtap="showPicker"
+  t-class="panel-item"
+/>
+
+<!-- 年月日时分 -->
+<t-date-time-picker
+  title="选择开始时间"
+  visible="{{datetimeStartVisible}}"
+  mode="second"
+  value="{{datetimeStart}}"
+  format="YYYY-MM-DD HH:mm:ss"
+  bindchange="onConfirm"
+  bindpick="onColumnChange"
+  bindcancel="hidePicker"
+/>
+ <!-- 点击单元格打开选择器 -->
+ <t-cell
+  title="结束时间"
+  hover
+  note="{{datetimeEndText}}"
+  arrow
+  data-mode="datetimeEnd"
+  bindtap="showPicker"
+  t-class="panel-item"
+/>
+
+<!-- 年月日时分 -->
+<t-date-time-picker
+  title="选择结束时间"
+  visible="{{datetimeEndVisible}}"
+  mode="second"
+  value="{{datetimeEnd}}"
+  format="YYYY-MM-DD HH:mm:ss"
+  bindchange="onConfirm"
+  bindpick="onColumnChange"
+  bindcancel="hidePicker"
+/>
+</view>
+ 
+ </view>
+ 
+  <ec-canvas 
+  wx:if="{{chartVisible}}" 
+     id="myEchart" 
+    canvas-id="myEchart" 
+    ec="{{ ec }}"
+    disable-scroll="false">
+  </ec-canvas>
+ 
+</view>
+</view>
+ 

@@ -1,0 +1,2 @@
+.page{padding:30rpx;height:80vh;box-sizing:border-box;}
+.content{margin-top:200rpx;text-align:center;font-size:32rpx;}

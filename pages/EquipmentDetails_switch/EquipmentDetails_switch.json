@@ -1,0 +1,9 @@
+{
+  "pageOrientation": "auto",
+  "usingComponents": {
+    "t-date-time-picker": "tdesign-miniprogram/date-time-picker/date-time-picker",
+    "t-cell": "tdesign-miniprogram/cell/cell",
+    "navbar": "/components/navbar/navbar",
+    "ec-canvas": "../../components/ec-canvas/ec-canvas"
+  }
+}

@@ -1,0 +1,35 @@
+/**app.wxss**/
+.container {
+ 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 200rpx 0;
+  box-sizing: border-box;
+} 
+/* 全局统一样式 */
+page {
+ 
+  /* min-height: 100vh; */
+  background: #f5f5f5;
+  font-family: "PingFang SC", "Helvetica Neue", "Microsoft YaHei", sans-serif;
+  -webkit-text-size-adjust: 100%;
+  overflow-x: hidden;
+}
+
+/* 统一盒模型 */
+view,text,div,image {
+  box-sizing: border-box;
+}
+
+/* 禁止长按选中文字 */
+text {
+  user-select: none;
+}
+
+/* 统一图片 */
+image {
+  display: block;
+  object-fit: cover;
+}

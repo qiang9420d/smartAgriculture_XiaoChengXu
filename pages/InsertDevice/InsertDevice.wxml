@@ -1,0 +1,56 @@
+<navbar title="设备新增/修改" bgColor="#1677ff" titleColor="#fff" showBack="{{true}}" showHome="{{false}}"></navbar>
+<view class="page-content" style="padding-top:{{navBarHeight}}px">
+
+<t-form label-width="150rpx" class="device-form">
+  <!-- 设备名称 -->
+  <t-form-item label="设备名称">
+    <t-input
+      value="{{form.DeviceName}}"
+      bind:change="onNameChange"
+      placeholder="请输入设备名称"
+      max-length="30"
+    />
+  </t-form-item>
+
+  <!-- 设备ID（禁用） -->
+  <t-form-item label="设备ID">
+    <t-input
+      value="{{form.DeviceId}}"
+      disabled
+      placeholder="自动生成/不可修改"
+    />
+  </t-form-item>
+
+  <!-- 设备类型 → 直接用 RADIO 单选 -->
+  <view class="demo-desc" style="margin: 48rpx 32rpx 32rpx">设备类型</view>
+
+    <t-radio-group t-class="horizontal-box" value="{{form.DeviceTypeId}}" bind:change="onDeviceTypeChange">
+      <view class="card {{form.DeviceTypeId == '1' ? 'card--active' : ''}}" >
+        <t-icon wx:if="{{form.DeviceTypeId == '1'}}" name="check" t-class="card__icon" />
+        <t-radio value="1" label="开关" icon="none" borderless style="background-color: #F3F3F3;" />
+      </view>
+
+      <view class="card {{form.DeviceTypeId == '2' ? 'card--active' : ''}}">
+        <t-icon wx:if="{{form.DeviceTypeId == '2'}}" name="check" t-class="card__icon" />
+        <t-radio value="2" label="放风机" icon="none" borderless style="background-color: #F3F3F3;"/>
+      </view>
+
+      <view class="card {{form.DeviceTypeId == '3' ? 'card--active' : ''}}">
+        <t-icon wx:if="{{form.DeviceTypeId == '3'}}" name="check" t-class="card__icon" />
+        <t-radio value="3" label="环境监测" icon="none" borderless style="background-color: #F3F3F3;"/>
+      </view>
+      <view class="card {{form.DeviceTypeId == '4' ? 'card--active' : ''}}">
+        <t-icon wx:if="{{form.DeviceTypeId == '4'}}" name="check" t-class="card__icon" />
+        <t-radio value="4" label="卷帘机" icon="none" borderless style="background-color: #F3F3F3;"/>
+      </view>
+    </t-radio-group>
+</t-form>
+
+<!-- 按钮组 -->
+<view class="btn-group">
+  <t-button theme="primary" bind:tap="submitAdd" block wx:if="{{isEdit == false}}">新增设备</t-button>
+  <t-button theme="primary" bind:tap="updateDevice" block  wx:if="{{isEdit == true}}" >修改设备</t-button>
+</view>
+
+<t-toast id="t-toast" />
+</view>

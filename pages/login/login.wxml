@@ -1,0 +1,42 @@
+<view class="loginBox">
+  <!-- 账号输入 -->
+  <!-- <t-input 
+    bindclear="inputChange" 
+    bindchange="inputChange" 
+    data-prop='account' 
+    value="{{formData.account}}" 
+    prefixIcon="user-avatar" 
+    placeholder="请输入账号" 
+    clearable 
+  /> -->
+  
+  <!-- 密码输入 -->
+  <!-- <t-input 
+    bindclear="inputChange" 
+    bind:click='changEye' 
+    bindchange="inputChange" 
+    data-prop='password' 
+    value="{{formData.password}}" 
+    prefixIcon="lock-on" 
+    placeholder="请输入密码" 
+    suffixIcon="{{ { name: showPassword?'browse':'browse-off' } }}" 
+    type="{{showPassword?'':'password'}}" 
+    clearable 
+  /> -->
+
+  <!-- 登录按钮 -->
+  <view class="loginButton">
+     <!-- <t-button bindtap='login' theme="primary" size="large" block>登录</t-button>
+    <t-button bindtap='register'   size="large" block style="margin-top: 20px;">注册</t-button>  -->
+    <view class="login-box">
+  <!-- 微信授权手机号按钮（必须用官方 button open-type） -->
+  <button 
+    class="login-btn"
+    open-type="getPhoneNumber" 
+    bindgetphonenumber="getPhoneNumber"
+  >
+    微信快捷登录
+  </button>
+</view>
+  </view>
+</view>

@@ -1,0 +1,51 @@
+<navbar title="收款二维码" bgColor="#1677ff" titleColor="#fff" showBack="{{true}}" showHome="{{false}}"></navbar>
+ 
+  <view class="page-wrap" style="padding-top:{{navBarHeight}}px;">
+ 
+  <view class="title">上传证件图片</view>
+  <view class="desc">仅支持单张图片，上传后可随时更换</view>
+
+  <!-- 大图展示区域 -->
+  <view class="img-card">
+    <!-- 已有图片：大图预览 + 更换按钮 -->
+    <view wx:if="{{ hasImage }}" class="img-preview">
+      <t-image
+        src="{{ imageUrl }}"
+        width="320rpx"
+        height="320rpx"
+        mode="aspectFill"
+        style="border-radius:16rpx;overflow:hidden;"
+      />
+      <t-button
+        class="change-btn"
+        theme="light"
+        size="medium"
+        bindtap="onChangeImage"
+      >
+        重新更换图片
+      </t-button>
+    </view>
+
+    <!-- 无图片：大上传占位框 -->
+    <view wx:else class="upload-placeholder" bindtap="triggerUpload">
+      <view class="placeholder-inner">
+        <text class="add-icon">+</text>
+        <text class="text">点击上传图片</text>
+        <text class="sub-text">JPG/PNG，最大10MB</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 隐藏的上传组件（负责实际上传） -->
+  <t-upload
+    class="hide-upload"
+    files="{{ files }}"
+    max="1"
+    media-type="{{ ['image'] }}"
+    size-limit="{{ 10 }}"
+    custom-upload="{{ customUpload }}"
+    bind:success="onUploadSuccess"
+  />
+
+  <t-toast id="t-toast" />
+</view>

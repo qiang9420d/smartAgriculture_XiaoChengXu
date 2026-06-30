@@ -1,0 +1,69 @@
+page {
+  background: #f7f8fa;
+}
+.page-wrap {
+  padding: 40rpx 30rpx;
+}
+.title {
+  font-size: 36rpx;
+  font-weight: 500;
+  color: #111;
+}
+.desc {
+  font-size: 26rpx;
+  color: #888;
+  margin: 12rpx 0 40rpx;
+}
+.img-card {
+  background: #fff;
+  border-radius: 20rpx;
+  padding: 40rpx 20rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+/* 已有图片预览区域 */
+.img-preview {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.change-btn {
+  margin-top: 30rpx;
+  width: 260rpx;
+}
+/* 空白上传占位框（和预览图同尺寸） */
+.upload-placeholder {
+  width: 320rpx;
+  height: 320rpx;
+  border: 3rpx dashed #dcdfe6;
+  border-radius: 16rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.placeholder-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #999;
+}
+.add-icon {
+  font-size: 80rpx;
+  line-height: 1;
+  margin-bottom: 16rpx;
+}
+.text {
+  font-size: 30rpx;
+}
+.sub-text {
+  font-size: 24rpx;
+  margin-top: 8rpx;
+  color: #bbb;
+}
+
+/* 隐藏原生上传组件，只保留功能 */
+.hide-upload {
+  display: none;
+}

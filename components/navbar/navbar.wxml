@@ -1,0 +1,14 @@
+<view class="navbar" style="height:{{navBarHeight}}px; padding-top:{{statusBarHeight}}px; background:{{bgColor}}">
+  <!-- 左侧返回/首页按钮 -->
+  <view class="navbar-left">
+    <view wx:if="{{showBack}}" bindtap="onBack" class="nav-btn" ><t-icon name="chevron-left" color="white" size="40rpx"/></view>
+    <view wx:if="{{showHome}}" bindtap="onHome" class="nav-btn">首页</view>
+    <view wx:if="{{showAdd}}" bindtap="onAdd" class="nav-btn">  <t-icon name="add-circle" color="white" size="40rpx"/></view>
+  </view>
+  <!-- 中间标题 -->
+  <view class="navbar-title" style="color:{{titleColor}}">{{title}}</view>
+  <!-- 右侧占位（避开胶囊） -->
+  <view class="navbar-right" style="width:{{menuButton.width}}px"></view>
+  <t-toast id="t-toast" />
+
+</view>

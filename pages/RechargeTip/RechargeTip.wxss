@@ -1,0 +1,43 @@
+.success-container {
+  padding: 420rpx 40rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fff;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+.success-icon {
+  margin-bottom: 40rpx;
+}
+
+.success-title {
+  font-size: 40rpx;
+  color: #1d2129;
+  font-weight: 500;
+  margin-bottom: 20rpx;
+}
+
+.success-desc {
+  font-size: 28rpx;
+  color: #86909c;
+  text-align: center;
+  margin-bottom: 120rpx;
+  line-height: 1.6;
+}
+
+.btn-group {
+  display: flex;
+  gap: 30rpx;
+  width: 100%;
+  padding: 0 20rpx;
+}
+
+.back-btn {
+  flex: 1;
+}
+
+.confirm-btn {
+  flex: 1;
+}

@@ -1,0 +1,39 @@
+<!--pages/home/home.wxml-->
+<navbar title="我的" bgColor="#1677ff" titleColor="#fff" showBack="{{false}}" showHome="{{false}}"></navbar>
+<!-- 页面内容要加padding-top，避免被导航栏遮挡 -->
+<view class="page-content" style="padding-top:{{navBarHeight}}px;">
+<view style="background-color: #1677ff;height: 200rpx;margin: 0rpx 25rpx 25rpx 25rpx;border-radius: 10px;display: flex;align-items: center">
+<view style="margin-left: 20rpx;color: white;font-size: 50rpx;">{{phone}}</view>
+</view>
+  <t-cell-group theme="card">
+    <t-cell title="单行标题" leftIcon="service" hover arrow />
+    <t-cell title="单行标题" leftIcon="internet" hover arrow />
+    <t-cell title="单行标题" leftIcon="lock-on" hover arrow />
+</t-cell-group>
+<t-row gutter="16">
+  <t-col span="6">
+    
+  </t-col>
+  <t-col span="12">
+    <t-button theme="light" style="color: rgb(224, 79, 79);margin-top: 20px;" size="large"
+    t-class="wrapper"
+    variant="outline"
+    data-key="showLightConfirm"
+    bind:tap="showDialog"
+  block
+    >退出登录</t-button>
+ 
+  </t-col>
+  <t-col span="6">
+    
+  </t-col>
+</t-row>
+<t-dialog
+  visible="{{showLightConfirm}}"
+  title="确认退出登录吗？"
+  confirm-btn="{{ { content: '确定', variant: 'base', theme: 'danger' } }}"
+  cancel-btn="取消"
+  bind:confirm="confirm"
+  bind:cancel="closeDialog"
+/>
+</view>

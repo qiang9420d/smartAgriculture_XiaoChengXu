@@ -1,0 +1,20 @@
+{
+  "component": true,
+  "styleIsolation": "apply-shared",
+  "usingComponents": {
+    "navbar": "/components/navbar/navbar",
+    "t-tabs": "tdesign-miniprogram/tabs/tabs",
+    "t-tab-panel": "tdesign-miniprogram/tab-panel/tab-panel",
+    "t-badge": "tdesign-miniprogram/badge/badge",
+    "t-col": "tdesign-miniprogram/col/col",
+    "t-row": "tdesign-miniprogram/row/row",
+    "t-cell": "tdesign-miniprogram/cell/cell",
+    "power-switch": "/components/power-switch/power-switch",
+    "t-empty": "tdesign-miniprogram/empty/empty",
+    "t-switch": "tdesign-miniprogram/switch/switch",
+    "t-tag": "tdesign-miniprogram/tag/tag"
+
+ 
+  },
+  "navigationStyle": "custom"
+}

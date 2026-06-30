@@ -1,0 +1,50 @@
+<!--pages/home/home.wxml-->
+<navbar title="充值续费" showAdd="{{false}}" bgColor="#1677ff" titleColor="#fff" showBack="{{true}}" showHome="{{false}}"></navbar>
+<view    class="page-content" style="padding-top:{{navBarHeight}}px">
+
+ <!-- 设备信息卡片 -->
+ <view class="card">
+    <view class="card-title">设备信息</view>
+
+    <view class="info-item">
+      <view class="label">设备名称</view>
+      <view class="value">{{deviceName}}</view>
+    </view>
+
+    <view class="info-item">
+      <view class="label">设备ID</view>
+      <view class="value">{{deviceUuid}}</view>
+    </view>
+
+    <view class="info-item">
+      <view class="label">当前到期时间</view>
+      <view class="value expire">{{expireTime}}</view>
+    </view>
+  </view>
+
+  <!-- 充值年限选择 -->
+  <view class="card">
+    <view class="card-title">选择充值时长</view>
+
+    <t-radio-group value="{{year}}" bind:change="onYearChange">
+      <t-radio value="{{1}}" label="1年 ¥35" />
+      <t-radio value="{{2}}" label="2年 ¥60" />
+      <t-radio value="{{3}}" label="3年 ¥85" />
+      <t-radio value="{{4}}" label="4年 ¥110" />
+      <t-radio value="{{5}}" label="5年 ¥135" />
+      <t-radio value="{{10}}" label="10年 ¥260" />
+    </t-radio-group>
+  </view>
+
+  <!-- 金额 + 按钮 同一行 -->
+  <view class="pay-row">
+    <view class="price-info">
+      <text>合计：</text>
+      <text class="price">¥{{totalPrice}}</text>
+    </view>
+    <t-button theme="primary" class="pay-btn" bind:tap="toPay">
+      去付款
+    </t-button>
+  </view>
+
+</view>

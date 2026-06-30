@@ -1,0 +1,246 @@
+<!--pages/home/home.wxml-->
+<navbar title="设备" bgColor="#1677ff" titleColor="#fff" showBack="{{true}}" showHome="{{false}}"></navbar>
+<!-- 页面内容要加padding-top，避免被导航栏遮挡 -->
+<view   class="page-content" style="padding-top:{{navBarHeight}}px;">
+  <scroll-view scroll-y style="height: 80vh;">
+
+ <t-cell-group theme="card" style="margin-top: 30rpx;">
+  <t-input
+  label="早上温度"
+  placeholder="0"
+  suffix="℃"
+  value="{{morningTemperature}}"
+  align="right"
+  type="number"
+  bindchange="onMorningTempChange"
+/>
+<t-input
+  label="中午温度"
+  placeholder="0"
+  suffix="℃"
+  value="{{noonTemperature}}"
+  align="right"
+  type="number"
+  bindchange="onNoonTempChange" 
+/>
+<t-input
+  label="晚上温度"
+  placeholder="0"
+  suffix="℃"
+  value="{{nightTemperature}}"
+  align="right"
+  type="number"
+  bindchange="onNightTempChange"
+/>
+<t-input
+  label="关闭温度"
+  placeholder="0"
+  suffix="℃"
+  value="{{CloseTemperature}}"
+  align="right"
+  type="number"
+  bindchange="onCloseTempChange"
+/>
+ 
+ </t-cell-group>
+ <t-cell-group theme="card" style="margin-top: 30rpx;">
+  <t-input
+  label="高温报警"
+  placeholder="0"
+  suffix="℃"
+  value="{{HighTemperatureAlarm}}"
+  align="right"
+  type="number"
+  bindchange="onHighTempAlarmChange"
+/>
+<t-input
+  label="低温报警"
+  placeholder="0"
+  suffix="℃"
+  value="{{LowTemperatureAlarm}}"
+  align="right"
+  type="number"
+  bindchange="onLowTempAlarmChange"
+/>
+ </t-cell-group>
+ <t-cell-group theme="card" style="margin-top: 30rpx;">
+  <t-cell title="早上开始时间" note="{{morningStartTime}}" bind:tap="showTimePicker" data-field="morningStartTime" hover arrow />
+  <t-cell title="早上结束时间" note="{{morningEndTime}}" bind:tap="showTimePicker" data-field="morningEndTime" hover arrow />
+  <t-cell title="中午开始时间" note="{{noonStartTime}}" bind:tap="showTimePicker" data-field="noonStartTime" hover arrow />
+  <t-cell title="中午结束时间" note="{{noonEndTime}}" bind:tap="showTimePicker" data-field="noonEndTime" hover arrow />
+  <t-cell title="晚上开始时间" note="{{nightStartTime}}" bind:tap="showTimePicker" data-field="nightStartTime" hover arrow />
+  <t-cell title="晚上结束时间" note="{{nightEndTime}}" bind:tap="showTimePicker" data-field="nightEndTime" hover arrow />
+  <!-- TDesign 时间选择器（放在页面最底部） -->
+<t-date-time-picker
+  title="选择时间"
+  visible="{{showPicker}}"
+  mode="{{['null', 'minute']}}"
+  value="{{pickerValue}}"
+  start="{{startTime}}"   
+ 
+  format="HH:mm"
+  bind:change="onTimeChange"
+  bind:confirm="onTimeConfirm"
+  bind:cancel="onTimeCancel"
+/>
+ </t-cell-group>
+ <t-cell-group theme="card" style="margin-top: 30rpx;">
+    <t-cell title="设备名称"  note="{{devInfo.devName}}" data-key="showWithInput" bind:tap="showDialog" hover arrow />
+    <t-cell title="设备类型" note="{{devTypeName}}"  bind:tap="showSheet"  hover arrow />
+ </t-cell-group>
+<t-action-sheet
+  visible="{{showSheet}}"
+  title="设备类型" 
+  description= "设备类型"
+  items="{{sheetItems}}"
+  bind:selected="onItemClick"
+  bind:close="onSheetClose"
+/>
+<t-dialog
+  visible="{{showWithInput}}"
+  title="带输入框对话框"
+  confirm-btn="确定"
+  cancel-btn="取消"
+  bind:confirm="confirmgDialog"
+  bind:cancel="closeDialog"
+>
+  <t-input
+    borderless
+    class="dialog-input"
+    clearable
+    slot="content"
+    type="text"
+    value="{{devInfo.devName}}"
+    bind:change="onInputChange"
+    placeholder="输入设备名称"
+    placeholder-class="placeholder"
+  />
+</t-dialog>
+<t-row gutter="16">
+  <t-col span="6">
+    
+  </t-col>
+  <t-col span="12">
+    <t-button theme="light" style="color: rgb(224, 79, 79);margin-top: 20px;" size="large"
+    t-class="wrapper"
+    variant="outline"
+    data-key="showLightConfirm"
+    bind:tap="showDialog"
+  block
+    >删除设备</t-button>
+ 
+  </t-col>
+  <t-col span="6">
+    <t-overlay visible="{{overlayVisible}}" duration="{{500}}" >
+    <view class="center-box">
+      <t-row >
+        <t-col span="24"  >
+          <t-cell-group theme="card" style="margin-top: 30rpx;">
+            <t-input
+            label="开度"
+            placeholder="0"
+            suffix="°"
+            value="{{DampnessOpen}}"
+            align="right"
+            type="number"
+            bindchange="onDampnessChange"
+          />
+          <t-input
+            label="持续时间"
+            placeholder="0"
+            suffix="分钟"
+            value="{{RemovalDuration}}"
+            align="right"
+            type="number"
+            bindchange="onDurationChange"
+          />
+          
+          </t-cell-group>
+          <view style="margin-top: 20rpx;color:white;" >时间到了，自动恢复到之前的状态（手动或自动）</view>
+          <button type="primary" style="margin-top: 20rpx;"   bind:tap="DampnessElimination">排湿</button>
+          <button type="light" style="margin-top: 20rpx;"   bind:tap="HideOverlayClick">关闭</button>
+         </t-col>
+        <!-- <t-button theme="primary" style="margin-top: 20rpx;"  size="large" bind:tap="submit">确定</t-button> -->
+      
+      </t-row>
+    </view>
+    </t-overlay>
+  </t-col>
+  <t-col span="6">
+    <t-overlay visible="{{overlayVisible2}}" duration="{{500}}" >
+    <view class="center-box">
+      <t-row >
+        <t-col span="24"  >
+          <t-cell-group theme="card" style="margin-top: 30rpx;">
+            <t-input
+            label="开度"
+            placeholder="0"
+            suffix="°"
+            value="{{ManualAngle}}"
+            align="right"
+            type="number"
+            bindchange="onManualAngleChange"
+          />
+          
+          
+          </t-cell-group>
+          <button type="primary" style="margin-top: 20rpx;"   bind:tap="ManuallyOpen">开始</button>
+          <button type="light" style="margin-top: 20rpx;"  data-key="overlayVisible2"   bind:tap="closeDialog">关闭</button>
+
+         </t-col>
+        <!-- <t-button theme="primary" style="margin-top: 20rpx;"  size="large" bind:tap="submit">确定</t-button> -->
+      
+      </t-row>
+    </view>
+    </t-overlay>
+  </t-col>
+</t-row>
+<t-dialog
+  visible="{{showLightConfirm}}"
+  title="确认删除设备吗？"
+  confirm-btn="{{ { content: '确定', variant: 'base', theme: 'danger' } }}"
+  cancel-btn="取消"
+  data-item="{{devInfo}}"
+  bind:confirm="DeleteDevConfirm"
+  bind:cancel="DeleteDevCloseDialog"
+/>
+<!-- title="当前模式为:{{RunModel == 0 ? '手动' : '自动'}}，确认切换成 {{RunModel == 1 ? '手动' : '自动'}} 模式吗？" -->
+<t-dialog
+  visible="{{showModelConfirm}}"
+  title="确认切换为自动模式吗？"
+  confirm-btn="{{ { content: '确定', variant: 'base', theme: 'danger' } }}"
+  cancel-btn="取消"
+  data-item="{{devInfo}}"
+  bind:confirm="SwitchModeConfirm"
+  bind:cancel="DeleteDevCloseDialog"
+/>
+<t-toast id="t-toast" />
+</scroll-view>
+</view>
+
+  <!-- 固定底部按钮 -->
+  <view class="fixed-bottom-btn">
+    <t-row gutter="16" style="margin-bottom: 10rpx;">
+    <t-col span="8">
+      
+    </t-col>
+    <t-col span="8">
+      <button type="primary"  data-key="overlayVisible2"  bind:tap="showDialog">手动</button>
+    </t-col>
+    <t-col span="8">
+      
+    </t-col>
+  </t-row>
+  <t-row gutter="16">
+    <t-col span="8">
+      <button type="primary" bind:tap="ConfirmChanges">修改</button>
+    </t-col>
+    <t-col span="8">
+      <button type="primary"  data-key="showModelConfirm"  bind:tap="showDialog">自动</button>
+    </t-col>
+    <t-col span="8">
+      <button type="primary" bind:tap="ShowOverlayClick">排湿</button>
+    </t-col>
+  </t-row>
+  </view>
+ 

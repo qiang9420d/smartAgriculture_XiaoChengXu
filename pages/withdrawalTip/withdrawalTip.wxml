@@ -1,0 +1,16 @@
+<navbar title="提现结果" bgColor="#1677ff" titleColor="#fff" showBack="{{false}}" showHome="{{false}}"></navbar>
+
+<view class="success-container">
+  <!-- 成功图标 -->
+  <t-icon name="check-circle-filled" size="120" color="#00b42a" class="success-icon" />
+  <!-- 主提示 -->
+  <view class="success-title">操作成功</view>
+  <!-- 辅助说明文案 -->
+  <view class="success-desc">订单提现申请已提交，等待审核后打款</view>
+
+  <!-- 底部操作按钮组 -->
+  <view class="btn-group">
+    <t-button theme="light" bindtap="goBack" class="back-btn">返回列表</t-button>
+    <!-- <t-button theme="primary" bindtap="goHome" class="confirm-btn">去首页</t-button> -->
+  </view>
+</view>

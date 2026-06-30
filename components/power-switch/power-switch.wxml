@@ -1,0 +1,5 @@
+<view class="custom-color"   >
+ 
+    <t-switch   value="{{switchStatus}}" bind:change="onSwitchChange" label="{{['开', '关']}}"  slot="note"  />
+ 
+</view>

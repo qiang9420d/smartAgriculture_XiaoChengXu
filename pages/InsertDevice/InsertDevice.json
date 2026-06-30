@@ -1,0 +1,17 @@
+{
+  "navigationBarTitleText": "设备管理",
+  "component": true,
+  "styleIsolation": "apply-shared",
+  "usingComponents": {
+    "navbar": "/components/navbar/navbar",
+    "t-input": "tdesign-miniprogram/input/input",
+    "t-radio": "tdesign-miniprogram/radio/radio",
+    "t-radio-group": "tdesign-miniprogram/radio-group/radio-group",
+    "t-form": "tdesign-miniprogram/form/form",
+    "t-form-item": "tdesign-miniprogram/form-item/form-item",
+    "t-button": "tdesign-miniprogram/button/button",
+    "t-toast": "tdesign-miniprogram/toast/toast",
+    "t-icon": "tdesign-miniprogram/icon/icon"
+  },
+  "navigationStyle": "custom"
+}
